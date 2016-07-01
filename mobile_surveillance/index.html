@@ -72,7 +72,21 @@ These constant “pings” cannot be turned off (even if a phone is in airplane 
 </section>
 
 <section data-markdown data-separator-notes="^Note:">
-## So, how is this information used for physical surveillance?
+## So, how is this used for physical surveillance?
+
+</section>
+
+<section data-markdown data-separator-notes="^Note:">
+## Six main surveillance methods in the U.S.
+
+1. Call Detail Record requests
+2. Pen register/trap and trace
+3. Content wiretaps
+4. E911 pings
+5. Tower dumps
+6. Stingray/IMSI catchers
+
+<p class="citation"> source: Matt Blaze, http://www.crypto.com/blog/celltapping/ </p>
 
 </section>
 
@@ -187,17 +201,15 @@ Information in a CDR:
   <li>A typical dump contains multiple towers, wireless providers, and can net information from thousands of phones</li>
 </ul>
 
-<p class="citation"> source: Matt Blaze, http://www.crypto.com/blog/celltapping/ </p>
-
 <aside class="notes">
 Note:
-About one in four law-enforcement agencies have used a tactic known as a "tower dump," which gives police data about the identity, activity and location of any phone that connects to the targeted cellphone towers over a set span of time, usually an hour or two. 
+~ 1/4 law-enforcement agencies have used a "tower dump," giving police data about the identity, activity and location of any phone that connects to the targeted cellphone towers over a set span of time.
 
-A typical dump covers multiple towers, and wireless providers, and can net information from thousands of phones.
+A typical dump covers multiple towers, and wireless providers, and info from thousands of phones.
 
-But what if they don't know what telephone number to ask for, e.g., they want to identify potential suspects who were in a certain area at a particular time? In such cases, they can request a "tower dump" of the cellular base station (or stations) that serve the target area for the time period of interest.
+Useful if law enforcement don't know a particular telephone number to ask for (i.e, they might want to identify potential suspects who were in a particular location at a specific time).
 
-A tower dump lists the CDRs (and, in some cases, new handset registrations) generated for a particular base station over some time period. That is, it is effectively a list of all the telephones and call activity in an area at a particular time. This allows an investigator to request information about everyone who was in a given area without having to specify who is being asked about in the request.
+A tower dump lists the CDRs for a particular base station over some time period. That is, it is effectively a list of all the telephones and call activity in an area at a particular time.
 
 </aside>
 </section>
