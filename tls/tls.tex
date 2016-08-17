@@ -1,0 +1,153 @@
+\documentclass{beamer}
+\usetheme{Boadilla}
+
+\title{TLS protocols}
+\date{\today}
+
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+\begin{frame}
+\frametitle{Overview}
+\tableofcontents
+\end{frame}
+
+\section{What is TLS?}
+
+\begin{frame}
+  % tania
+\frametitle{What is TLS, and where is it used?}
+  SSL: Secure Sockets Layer (2.0 released 1995, serious security flaws)
+
+  TLS: Transport Layer Security (upgrade of SSL 3.0, first released 1999)
+\end{frame}
+
+\begin{frame}
+  % tania / sofie
+  \frametitle{What is TLS}
+Secures communication over the network
+
+Ensures:
+  \begin {itemize}
+    \item Privacy
+    \item Data Integrity
+    \item Authentication
+  \end {itemize}
+\end{frame}
+
+\begin{frame}
+  % tania/sofie 
+  \frametitle{Privacy}
+Makes sure your data can't be read while in transport
+\end{frame}
+
+\begin{frame}
+  % tania/sofie
+  \frametitle{Data Integrity}
+Makes sure your data isn't changed
+\end{frame}
+
+\begin{frame}
+  %tania/sofie
+  \frametitle{Authentication}
+Makes sure you are talking to who you think you are.
+
+So, ensures that when you think you are talking to your bank, you are
+\end{frame}
+
+\begin{frame}
+  % tania/sofie
+  \frametitle{Certificates}
+At minimium, certificates authenticate the server's identity to the client.
+
+At minimum, a certificate includes the following:
+  \begin{itemize}
+    \item Server's public key
+    \item Signature from a trusted Certificate Authority
+  \end{itemize}
+
+(what could go wrong with this...)
+\end{frame}
+
+\section{Protocols}
+
+\begin{frame}
+\frametitle{TLS Protocols}
+\end{frame}
+
+\begin{frame}
+  % chelsea
+\frametitle{TLS Record Protocol}
+Goal: Protect your data in transport
+
+How: Encrypt and verify application data with keys established from the handshake protocol
+
+\end{frame}
+
+\begin{frame}
+  % chelsea
+\frametitle{Handshake Protocol}
+Responsible for authentication and key exchange
+\end{frame}
+
+\begin{frame}
+  % sofie & tania
+\frametitle{Example TLS Cipher Suite}
+ TLS\_RSA\_WITH\_AES\_128\_CBC\_SHA
+  \begin {itemize}
+    \item Key Exchange - RSA, Diffie-Hellman, ECDH, PSK
+    \item Authentication - RSA, DSA, ECDSA
+    \item Cipher - ~~RC4~~, 3DES, AES of CTR, CBC, GCM
+    \item Data verification - H-MAC{sha1,sha256,sha384}
+  \end {itemize}
+\end{frame}
+
+
+\begin{frame}
+  % chelsea
+\frametitle{TLS Change Cipher Spec Protocol}
+Notifies that next records will be encrypted with newly negotiated keys
+\end{frame}
+
+\begin{frame}
+  % chelsea
+\frametitle{TLS Alert Protocol}
+Sends alerts such as:
+  \begin {itemize}
+  \item close\_notify
+  \item unexpected\_message
+  \item bad\_record\_mac
+  \item bad\_certificate
+  \item handshake\_failure
+  \item user\_cancelled
+  \end {itemize}
+\end{frame}
+
+\section{Vulnurabilities And Fixes}
+
+\begin{frame}
+\frametitle{Vulnurabilities: Downgrade attacks}
+% tania / chelsea
+Downgrade attack- tricks a web server into negotiating connections with older versions of TLS/SSl (SSLv2)
+  \begin {itemize}
+    \item DROWN: Decrypting RSA with Obsolete and Weakened eNcryption
+    \item BEAST: Browser Exploit Against SSL/TLS
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Vulnurabilities: Padding Oracle attacks}
+Padding Oracle attack: Takes advantage of ciphertext padding, and the ability to query whether the message is padded correctly
+  \begin {itemize}
+    %chelsea
+    \item CRIME and BREACH: recover cookies when data compression is used
+    \item POODLE: Padding Oracle On Downgraded Legacy Encryption (MITM)
+  \end{itemize}
+\end{frame}
+
+\end{document}
+
+
